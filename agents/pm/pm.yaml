@@ -1,0 +1,15 @@
+name: pm
+description: "arc-builder PM -- technical product manager for your software portfolio"
+workspace: /workspace/arc-builder/agents/pm
+system_prompt_files:
+  - IDENTITY.md
+  - SOUL.md
+  - AGENTS.md
+model: sonnet
+allowed_models:
+  - sonnet
+  - opus
+permission_mode: approve-all
+discord:
+  channel_id: "1499883427732656188"
+  require_mention: false

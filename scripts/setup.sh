@@ -22,9 +22,16 @@ else
     echo "Database already exists at $DB -- skipping creation."
 fi
 
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+echo ""
+echo "Registering PM agent with arc ..."
+cp "$REPO_ROOT/agents/pm/pm.yaml" "$HOME/.arc/agents/pm.yaml"
+echo "Copied pm.yaml to ~/.arc/agents/pm.yaml"
+
 echo ""
 echo "Setup complete. Next steps:"
-echo "  1. Register pm and worker agents in ~/.arc/agents/"
-echo "  2. Set channel_id in pm.yaml to your #builder Discord channel"
-echo "  3. Add your projects: arc-builder memory add-project"
-echo "  4. Start the arc daemon: arc daemon start"
+echo "  1. Verify ~/.arc/agents/pm.yaml has the correct workspace path"
+echo "  2. Add your projects: arc-builder memory add-project"
+echo "  3. Restart the arc daemon: arc daemon restart"
+echo "  4. Post a message in #builder to test the PM"
