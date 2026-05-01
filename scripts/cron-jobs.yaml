@@ -1,0 +1,26 @@
+# arc-builder cron jobs
+# Merge these entries into ~/.arc/cron/jobs.yaml
+
+jobs:
+  arc-builder-poll:
+    description: "Check for pending worker notifications and post updates to #builder"
+    schedule: "*/10 * * * *"
+    agent: pm
+    prompt: >
+      Check your SQLite notifications table for any unread worker updates.
+      If there are unread notifications, return a brief summary for each one
+      (issue, PR number, status). If there are none, return nothing.
+    notify: discord_if_nonempty
+    enabled: true
+
+  arc-builder-cleanup:
+    description: "Remove stale worktrees for merged or closed PRs"
+    schedule: "0 3 * * 0"
+    agent: pm
+    prompt: >
+      Scan ~/.arc-builder/worktrees/ for directories older than 7 days.
+      For each one, determine the associated PR from the checkpoints table
+      and check if it is merged or closed via gh pr view. If so, remove the
+      worktree and delete the remote and local branch. Log each removal.
+    notify: discord_if_nonempty
+    enabled: true

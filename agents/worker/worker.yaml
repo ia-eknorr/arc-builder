@@ -1,0 +1,15 @@
+name: worker
+description: "arc-builder worker -- background implementation agent"
+workspace: /workspace/arc-builder/agents/worker
+system_prompt_files:
+  - ../shared/STANDARDS.md
+  - ../shared/PROJECTS.md
+  - IDENTITY.md
+  - SOUL.md
+  - AGENTS.md
+model: sonnet
+allowed_models:
+  - sonnet
+  - opus
+permission_mode: bypassPermissions
+timeout: 3600

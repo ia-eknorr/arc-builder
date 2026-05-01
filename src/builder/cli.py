@@ -15,7 +15,10 @@ def setup() -> None:
 @app.command()
 def dispatch(issue_url: str = typer.Argument(..., help="GitHub issue URL")) -> None:
     """Dispatch a worker agent for the given issue (non-blocking)."""
-    typer.echo(f"dispatch {issue_url} -- not yet implemented")
+    import asyncio
+    from builder.dispatch import fire
+    asyncio.run(fire(issue_url))
+    typer.echo(f"Worker dispatched for {issue_url}")
 
 
 @app.command()
