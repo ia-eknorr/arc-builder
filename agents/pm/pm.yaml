@@ -2,6 +2,7 @@ name: pm
 description: "arc-builder PM -- technical product manager for your software portfolio"
 workspace: /workspace/arc-builder/agents/pm
 system_prompt_files:
+  - ../shared/PROJECTS.md
   - IDENTITY.md
   - SOUL.md
   - AGENTS.md
