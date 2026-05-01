@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "arc-builder"
+version = "0.1.0"
+description = "Multi-agent software development system built on arc"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "aiosqlite>=0.20",
+]
+
+[project.scripts]
+arc-builder = "builder.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/builder"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
