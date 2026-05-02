@@ -50,7 +50,7 @@ def notify() -> None:
                 line += f" (PR #{r['pr_number']})"
             lines.append(line)
         typer.echo("\n".join(lines))
-        async with await open_db() as db:
+        async with open_db() as db:
             ids = [r["id"] for r in rows]
             await db.execute(
                 f"UPDATE notifications SET read=1 WHERE id IN ({','.join('?' * len(ids))})",
