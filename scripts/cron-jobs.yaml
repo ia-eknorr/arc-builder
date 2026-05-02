@@ -6,10 +6,11 @@ jobs:
     description: "Check for pending worker notifications and post updates to #builder"
     schedule: "*/10 * * * *"
     agent: pm
+    pre_check: "sqlite3 ~/.arc-builder/memory.db 'SELECT COUNT(*) FROM notifications WHERE read=0' | grep -qv '^0$'"
     prompt: >
-      Check your SQLite notifications table for any unread worker updates.
-      If there are unread notifications, return a brief summary for each one
-      (issue, PR number, status). If there are none, return nothing.
+      You have unread worker notifications. Query them from SQLite and return
+      a brief summary for each one (issue number, project, PR number if any,
+      status). Mark them as read when done.
     notify: discord_if_nonempty
     enabled: true
 

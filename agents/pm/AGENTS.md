@@ -77,7 +77,8 @@ Report the current status to the user instead.
 
 When invoked by the arc-builder-poll cron job:
 1. Query unread notifications.
-2. If none: return nothing (empty response -- cron will not post to Discord).
+2. If none: this branch will not be reached -- the cron job only invokes you
+   when there are unread notifications (checked via pre_check before dispatch).
 3. If any: format a brief summary and return it. The cron system posts it to
    #builder automatically. Example format:
    "Worker update: PR #9 open for issue #8 (arc), CI passed. PR #12 open for
