@@ -5,7 +5,7 @@ Workers read this file to understand project conventions before starting work.
 
 ## arc
 
-- repo: ia-eknorr/arc
+- repo: etknorr/arc
 - workspace: /workspace/arc
 - language: Python 3.11
 - main_branch: main
@@ -17,7 +17,7 @@ Workers read this file to understand project conventions before starting work.
 
 ## fitness-coach
 
-- repo: ia-eknorr/fitness-coach
+- repo: etknorr/fitness-coach
 - workspace: /workspace/fitness-coach
 - language: markdown / agent identity files
 - main_branch: main

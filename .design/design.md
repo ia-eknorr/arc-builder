@@ -472,7 +472,7 @@ Database at `~/.arc-builder/memory.db`. Created by `setup.sh` on first run.
 CREATE TABLE IF NOT EXISTS projects (
     id          INTEGER PRIMARY KEY,
     name        TEXT UNIQUE NOT NULL,       -- "arc", "fitness-coach"
-    repo        TEXT NOT NULL,              -- "ia-eknorr/arc"
+    repo        TEXT NOT NULL,              -- "etknorr/arc"
     workspace   TEXT NOT NULL,              -- "/workspace/arc"
     language    TEXT,                       -- "python", "typescript"
     main_branch TEXT NOT NULL DEFAULT 'main',
@@ -487,7 +487,7 @@ CREATE TABLE IF NOT EXISTS decisions (
     project     TEXT,                       -- NULL = global
     decision    TEXT NOT NULL,
     rationale   TEXT,
-    issue_ref   TEXT,                       -- "ia-eknorr/arc#7"
+    issue_ref   TEXT,                       -- "etknorr/arc#7"
     created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -850,7 +850,7 @@ otherwise it proceeds without one and notes its absence in the PR description.
 ### Phase 1: PM + issue creation (ship first, use immediately)
 
 Deliverables:
-- Create `ia-eknorr/arc-builder` repo
+- Create `etknorr/arc-builder` repo
 - Write PM identity files (IDENTITY.md, SOUL.md, AGENTS.md)
 - Write STANDARDS.md and PROJECTS.md for known projects
 - Initialize SQLite schema, populate `projects` table
